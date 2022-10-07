@@ -1,0 +1,28 @@
+public class Main {
+    public static void NonrepeatingCharacter(String s ,int n)
+    {
+     HashMap<Character,Integer>map=new HashMap<Character,Integer>();
+        for(int i=0;i<n;i++)
+        {
+            char c=s.charAt(i);
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        for(int i=0;i<n;i++)
+        {
+            char ch=s.charAt(i);
+            if(map.get(ch)==1)
+            {
+                System.out.print(s.charAt(i));
+                return;
+            }
+        }
+        System.out.print("-1");
+        return;
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        String s=sc.next();
+        int n=s.length();
+        NonrepeatingCharacter(s,n);
+    }
+}
