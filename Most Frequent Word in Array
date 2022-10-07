@@ -1,1 +1,33 @@
-# solution
+public class Main {
+    public static String MostFrequentWord(String[]arr,int n)
+    {
+        HashMap<String,Integer>map=new HashMap<String,Integer>();
+        for(int i=0;i<n;i++)
+        {
+            String word=arr[i];
+            map.put(word,map.getOrDefault(word,0)+1);
+        }
+        String ans=" ";
+        int maxFreq=0;
+        for(int i=0;i<n;i++)
+        {
+            String word=arr[i];
+            if(map.get(word)>=maxFreq)
+            {
+                ans=word;
+                maxFreq=map.get(word);
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int n=sc.nextInt();
+        String arr[]=new String[n];
+        for(int i=0;i<n;i++)
+        {
+             arr[i]=sc.next();
+        }
+        System.out.print(MostFrequentWord(arr,n));
+    }
+}
